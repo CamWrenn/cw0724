@@ -27,10 +27,10 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 		<spring-shell.version>3.3.1</spring-shell.version>
-		<maven.compiler.source>19</maven.compiler.source>
-		<maven.compiler.target>19</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
