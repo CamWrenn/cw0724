@@ -2,7 +2,9 @@
 
 This is the rental tool app. It requires Java 17.
 
-The app ships with a maven wrapper, so you should be able to start it with:
+As an interactive command line app, it doesn't really work running from an IDE, so use a command prompt. The commands
+here are formatted for windows command prompt and powershell, The app ships with a maven wrapper, so you should be able
+to start it with:
 ```
     .\mvnw spring-boot:run
 ```
