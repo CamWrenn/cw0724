@@ -1,0 +1,8 @@
+Welcome to the rental tool application.
+
+Type 'help' for a full list of commands.
+
+To create Rental Agreement, use checkout:
+ > checkout [--code String] [--rentalDayCount String] [--discountPercent String] [--checkoutDate String]
+Positional options are available, for example:
+ > checkout JAKR 5 4 7/1/24
