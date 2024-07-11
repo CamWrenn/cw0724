@@ -7,13 +7,9 @@ import com.camwrenn.rentaltool.service.RentalAgreementService;
 import com.camwrenn.rentaltool.validation.RentalValidationException;
 import com.camwrenn.rentaltool.validation.ValidatedInput;
 import com.camwrenn.rentaltool.validation.ValidatedInputFactory;
-import org.springframework.shell.standard.ShellComponent;
-import org.springframework.shell.standard.ShellMethod;
-import org.springframework.shell.standard.ShellOption;
 
 import java.util.Optional;
 
-@ShellComponent
 public class RentalCommands {
     RentalAgreementService rentalAgreementService;
     ToolRepository toolRepository;
@@ -23,13 +19,12 @@ public class RentalCommands {
         this.toolRepository = toolRepository;
     }
 
-    @ShellMethod(
-            "Create Rental Agreement with product code, length of rental in days, discount percent, and checkout date")
+
     public String checkout(
-            @ShellOption(help="Valid code for a tool") String code,
-            @ShellOption(help="Integer above 0") String rentalDayCount,
-            @ShellOption(help="Integer between 0 and 100") String discountPercent,
-            @ShellOption(help="String with the format MM/DD/YY") String checkoutDate
+            String code,
+            String rentalDayCount,
+            String discountPercent,
+            String checkoutDate
     ) {
 
         RentalAgreement agreement;
@@ -45,15 +40,22 @@ public class RentalCommands {
         return agreement.toString();
     }
 
-    @ShellMethod("List valid tool codes")
     public String list() {
 
         return toolRepository.getAllCodes().toString();
     }
 
-    @ShellMethod("Get a single tool by code")
     public String tool(String code) {
         Optional<Tool> tool = toolRepository.getByCode(code);
         return tool.isPresent() ? tool.get().toString() : "Tool not found";
+    }
+
+    public String help() {
+        return """
+                Rental Commands:
+                  checkout: Create Rental Agreement with product code, length of rental in days, discount percent, and checkout date
+                  list: List valid tool codes
+                  tool: Get a single tool by code
+                """;
     }
 }

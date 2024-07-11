@@ -1,28 +1,33 @@
 # Setup
 
-This is the rental tool app. It requires Java 17.
+This is the rental tool app. It requires JAVA_HOME be set to Java 17+.
 
-As an interactive command line app, it doesn't really work running from an IDE, so use a command prompt. The commands
-here are formatted for windows command prompt and powershell, The app ships with a maven wrapper, so you should be able
-to start it with:
-```
-    .\mvnw spring-boot:run
-```
+The app can be run directly from an IDE by selecting run on RentaltoolApplication (Tested with IntelliJ). However,
+the experience will be dependent on the terminal the IDE decides to use. IntelliJ's doesn't support the up arrow and
+history.
 
-It can also be run from a jar:
+Using a command prompt, the app ships with a maven wrapper, so you should be able to package it with:
 ```
     .\mvnw package
+```
+
+Then it can be run, either with maven:
+```
+    .\mvnw exec:java
+```
+
+Or from the jar:
+```
     %JAVA_HOME%\bin\java -jar target\rentaltool-0.0.1-SNAPSHOT.jar
 ```
+
 
 ## Double Holidays?
 The requirements say that July 4th can be observed on a different day if it's on the weekend. Would the actual day
 count as a holiday for charging purposes as well? Default behavior is NO. But it can be changed by setting the property 
-`rentaltool.doubleHoliday` to true. This can be changed in `application.propteries`, or with a JVM argument on boot. 
+`dh` to true. This can be changed with a JVM argument on boot. 
 ```
-    .\mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Drentaltool.doubleHoliday=true"
-    Or
-    %JAVA_HOME%\bin\java -Drentaltool.doubleHoliday=true -jar target\rentaltool-0.0.1-SNAPSHOT.jar
+    %JAVA_HOME%\bin\java -jar target\rentaltool-0.0.1-SNAPSHOT.jar dh=true"
 ```
 
 ## Tests
