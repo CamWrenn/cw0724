@@ -1,20 +1,17 @@
 package com.camwrenn.rentaltool.service;
 
 import com.camwrenn.rentaltool.domain.ToolType;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.stream.IntStream;
 
-@Service
 public class ChargeableDaysService {
 
     boolean doubleHoliday;
 
-    ChargeableDaysService(@Value("${rentaltool.doubleHoliday}") boolean doubleHoliday) {
+    public ChargeableDaysService(boolean doubleHoliday) {
         this.doubleHoliday = doubleHoliday;
     }
 

@@ -4,16 +4,14 @@ import com.camwrenn.rentaltool.domain.RentalAgreement;
 import com.camwrenn.rentaltool.domain.Tool;
 import com.camwrenn.rentaltool.repository.ToolRepository;
 import com.camwrenn.rentaltool.validation.RentalValidationException;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-@Service
 public class RentalAgreementService {
     ToolRepository toolRepository;
     ChargeableDaysService chargeableDaysService;
 
-    RentalAgreementService(ToolRepository toolRepository, ChargeableDaysService chargeableDaysService) {
+    public RentalAgreementService(ToolRepository toolRepository, ChargeableDaysService chargeableDaysService) {
         this.toolRepository = toolRepository;
         this.chargeableDaysService = chargeableDaysService;
     }

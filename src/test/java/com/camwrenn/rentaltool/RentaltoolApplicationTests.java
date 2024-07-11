@@ -1,22 +1,17 @@
 package com.camwrenn.rentaltool;
 
-import com.camwrenn.rentaltool.commands.RentalCommands;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
 class RentaltoolApplicationTests {
 
-	@Autowired
-	RentalCommands commands;
+	RentaltoolApplication app = new RentaltoolApplication(false);
 
 	@Test
 	public void test1() {
 		assertEquals("Discount percent must be between 0 and 100",
-				commands.checkout("JAKR", "5", "101", "9/3/15"));
+				app.rentalCommands.checkout("JAKR", "5", "101", "9/3/15"));
 	}
 
 	@Test
@@ -37,7 +32,7 @@ class RentaltoolApplicationTests {
 				Final charge: $3.58
 				""";
 
-		assertEquals(result, commands.checkout("LADW", "3", "10", "7/2/20"));
+		assertEquals(result, app.rentalCommands.checkout("LADW", "3", "10", "7/2/20"));
 	}
 
 	@Test
@@ -58,7 +53,7 @@ class RentaltoolApplicationTests {
 				Final charge: $3.35
 				""";
 
-		assertEquals(result, commands.checkout("CHNS", "5", "25", "7/2/15"));
+		assertEquals(result, app.rentalCommands.checkout("CHNS", "5", "25", "7/2/15"));
 	}
 
 	@Test
@@ -79,7 +74,7 @@ class RentaltoolApplicationTests {
 				Final charge: $8.97
 				""";
 
-		assertEquals(result, commands.checkout("JAKD", "6", "0", "9/3/15"));
+		assertEquals(result, app.rentalCommands.checkout("JAKD", "6", "0", "9/3/15"));
 	}
 
 	@Test
@@ -100,7 +95,7 @@ class RentaltoolApplicationTests {
 				Final charge: $17.94
 				""";
 
-		assertEquals(result, commands.checkout("JAKR", "9", "0", "7/2/15"));
+		assertEquals(result, app.rentalCommands.checkout("JAKR", "9", "0", "7/2/15"));
 	}
 
 	@Test
@@ -121,6 +116,6 @@ class RentaltoolApplicationTests {
 				Final charge: $1.49
 				""";
 
-		assertEquals(result, commands.checkout("JAKR", "4", "50", "7/2/20"));
+		assertEquals(result, app.rentalCommands.checkout("JAKR", "4", "50", "7/2/20"));
 	}
 }

@@ -2,18 +2,16 @@ package com.camwrenn.rentaltool.repository;
 
 import com.camwrenn.rentaltool.domain.ToolType;
 import com.camwrenn.rentaltool.domain.ToolTypeCode;
-import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Repository
 public class HardCodedToolTypeRepository implements ToolTypeRepository{
 
     Map<ToolTypeCode, ToolType> toolTypes;
 
-    HardCodedToolTypeRepository() {
+    public HardCodedToolTypeRepository() {
         toolTypes = Stream.of(
             new ToolType(ToolTypeCode.LADDER, 1.99, true, true, false),
             new ToolType(ToolTypeCode.CHAINSAW, 1.49, true, false, true),

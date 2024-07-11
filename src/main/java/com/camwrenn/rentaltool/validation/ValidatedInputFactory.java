@@ -4,10 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-/*
-    There appears to be a bug in Spring Shell... I can't get messages from Java validation to display correctly.
-    So this handles validation manually.
- */
 public class ValidatedInputFactory {
 
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("M/d/yy");
